@@ -1,0 +1,4 @@
+to get input use  a variable
+
+
+string name = Console.ReadLine();

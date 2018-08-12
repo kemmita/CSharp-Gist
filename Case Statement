@@ -1,0 +1,27 @@
+static void Main(string[] args)
+        {
+            var person = new Person();
+            int hour = 1;
+
+            switch (hour)
+            {
+                case 0:
+                    person.introduce();
+                    break;
+                case 1:
+                    person.introduce();
+                    break;
+                case 2:
+                    person.introduce();
+                    break;
+                case 3:
+                    person.introduce();
+                    break;
+                default:
+                    Console.WriteLine("Etwas ist mit den los");
+                    break;
+
+            }
+         
+            Console.Read();
+        }

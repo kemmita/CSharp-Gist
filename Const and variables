@@ -1,0 +1,8 @@
+a const is a variable that can not be changed throughout the life of the application
+const string name = "james";
+
+name = "ben"; would not work
+
+
+to declare a float add f to the ned of your float
+float a = 4.36f;

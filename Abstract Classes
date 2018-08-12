@@ -1,0 +1,59 @@
+//we use Abstract Classes as a way to have methods pre-declared we use the virtual keyword, 
+	    //like we did when using polymorphisim this abstact class can never be instantiated as an object becuase it is abstract
+	    abstract class Animal
+	    {
+	        public virtual void Noise()
+	        {
+	            
+	        }
+	    }
+	 
+	//we inherit from animal to use poly
+	    class Dog:Animal
+	    {
+	        //unlike with polymorphisim, we would not be refered back the base method of noise becuase it is asbtract
+	        //it must be defined here if we are to use it in the application. 
+	        public override void Noise()
+	        {
+	            Console.WriteLine("Dogs Bark");
+	        }
+	    }
+	  
+	
+
+	class Cat:Animal
+	    {
+	        public override void Noise()
+	        {
+	            Console.WriteLine("cats go Meow!!");
+	        }
+	    }
+	
+
+	  class Bird:Animal
+	    {
+	        public override void Noise()
+	        {
+	            Console.WriteLine("Chirp chirp....");
+	        }
+	    }
+	 
+	//main class
+	 static void Main(string[] args)
+	
+
+	        {
+	
+
+	            var dog = new Dog();
+	            var cat = new Cat();
+	            var bird = new Bird();
+	            bird.Noise();
+	            dog.Noise();
+	            cat.Noise();
+	
+
+	            Console.ReadKey();
+	
+
+	        }

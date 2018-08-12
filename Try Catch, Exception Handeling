@@ -1,0 +1,23 @@
+create a method that divides two numbers
+  public int Divide(int x, int y)
+        {
+            return x / y;
+        }
+ 
+ 
+ 
+ //if we know there could be problems within specifc areas of our application, we can use try catch
+  static void Main(string[] args)
+        {
+            try
+            {
+                var calc = new Calculator();
+                var result = calc.Divide(5, 0);
+            }
+            catch (Exception)
+            {
+//the below message is much better than the scary ones that appear at us.
+                Console.WriteLine("Problem at section of application example");
+            }
+            Console.ReadKey();
+        }

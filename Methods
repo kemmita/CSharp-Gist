@@ -1,0 +1,29 @@
+ ******Main class methods**********
+ //whne writing a method within the main class, you must use static 
+        public static string working(string n){
+            Console.WriteLine(n);
+            return n; 
+        }
+   
+ ***Method overloading*************
+ //now we will look at method overloading
+   public void add()
+        {
+
+        }
+        public void add(int x, int y)
+        {
+            Console.WriteLine(x + y);
+        }
+        public void add( int y)
+        {
+            Console.WriteLine(y);
+        }
+ 
+         var person = new Person();
+   //so the method we call from the Person class is going to be the first overload
+            person.add(12,12);
+  
+  
+*****
+  

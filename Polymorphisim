@@ -1,0 +1,38 @@
+//to use polymorphisim, we must declare the method we wish to overide as virtual, this virtual method will always be in th base class.
+	 class Animal
+	    {
+	        public virtual void Noise()
+	        {
+	            Console.WriteLine("All animals make noise.");
+	        }
+	    }
+	}
+	
+
+	//to overide the method of the class above, we must first inherit 
+	   class Dog:Animal
+	    {
+	    //use the overide keyword to use poly
+	        public override void Noise()
+	        {
+	            Console.WriteLine("Dogs Bark");
+	        }
+	
+
+	//main class
+	 static void Main(string[] args)
+	
+
+	        {
+	
+
+	            Animal animal = new Animal();
+	            var dog = new Dog();
+	            animal.Noise();
+	            dog.Noise();
+	
+
+	            Console.ReadKey();
+	
+
+	        }

@@ -1,0 +1,14 @@
+//just like Javascript we can create an object of a class and use object initialization to define the variables declared in the class
+static void Main(string[] args)
+        {
+            var person = new Person
+            {
+                Name = "Russell Kemmit",
+                Age = 28,
+                salary = 260000.00
+            };
+            Console.WriteLine(person.Name);
+           
+            
+            Console.ReadLine();
+        }

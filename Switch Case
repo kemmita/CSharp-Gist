@@ -1,0 +1,29 @@
+using System;
+
+namespace ConsoleApp1
+{
+  
+    class Solution
+    {
+
+        static void Main(string[] args)
+        {
+            string answer = Console.ReadLine();
+            switch (answer)
+            {
+                case "0":
+                    Console.WriteLine("this is 0");
+                    break;
+                case "1":
+                    Console.WriteLine("This is 1");
+                    break;
+                default:
+                    Console.WriteLine("Default ran");
+                    break;
+            }
+            Console.ReadLine();
+
+
+        }
+    }
+}

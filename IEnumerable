@@ -1,0 +1,33 @@
+IEnumerable can help you create a generic list
+
+
+//first create your class that you will use in your generic class
+ class Car
+    {
+        public string Model { get; set; }
+        public int Year { get; set; }
+    }
+}
+
+
+//then use your IEnumerable in a different class
+ class CarDepo
+    {
+        public IEnumerable<Car> GetCar()
+        {
+            return new List<Car>{
+            new Car() {Model = "wdbiuw", Year = 1955},
+            new Car() {Model = "ryrtynynny", Year = 1986},
+            new Car() {Model = "wddfdfbfdff", Year = 1998},
+            new Car() {Model = "wdwwwssfsswasasllllluw", Year = 2018}
+            };
+        }
+    }
+
+
+//here is how you use a IEnumerable
+var car = new CarDepo().GetCar();
+ foreach(var cars in car)
+            {
+          Console.WriteLine(cars.Model+ " " +cars.Year);
+            }

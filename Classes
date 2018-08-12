@@ -1,0 +1,20 @@
+//lets create a new class
+
+public class Person
+{
+//now lets delcare some variables, lets make them public so they can be used throughout the application
+  public string name;
+//now lets create a method, delcare it void as it will not return any data type
+public void introduce(string to)
+    //use string format
+    Console.WriteLine("Hello {0}, My name is {1} ",to, name);
+    
+}
+
+//now in the main class lets creat an instance object of this class 
+var person = new Person();
+//now create an instance variable 
+person.name = "Jennifer";
+person.introduce("Russell");
+
+

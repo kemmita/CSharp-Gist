@@ -1,0 +1,21 @@
+//type conversion is where we take one data type and trasnfer it to another the ending data type will be what is outupted
+            //in order for this to execute correctly we must use casting, note (byte).
+            int i = 1;
+            byte b = (byte)i;
+            Console.WriteLine(b);
+
+
+
+
+
+            int a = 10;
+            int b = 3;
+            //this will give us a aswer, but it wil not be exact.
+            Console.WriteLine(a / b);
+
+
+            //to get exact numbers use casting
+            int c = 12;
+            int d = 64;
+            Console.WriteLine((float)d/(float)c);
+            Console.ReadLine();

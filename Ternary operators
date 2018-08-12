@@ -1,0 +1,16 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using ConsoleApp1;
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+        int x = 2;
+        int y = 3;
+        //the ternary operators are saying, if x is greater than y then print x else print y
+        //: = else ? = if
+        Console.WriteLine(x > y ? x : y);
+    }
+}

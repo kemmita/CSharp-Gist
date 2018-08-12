@@ -1,0 +1,26 @@
+//enums are just like classes and must be declared outside of another class, they can even begiven their on file if you want
+    //a enum is several consts wrapped together.
+    public enum ShippingMethod
+    {
+        Regular =1,
+        Regi =2,
+        Express =3,
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //here is how we parse a string to an int
+            string methodName = "Express";
+            var m =(int)Enum.Parse(typeof(ShippingMethod), methodName);
+            Console.WriteLine(m);
+
+
+            //here is how we pare a string to a enum
+            string methodTwo = "Regi";
+            var n = (ShippingMethod)Enum.Parse(typeof(ShippingMethod), methodTwo);
+            Console.WriteLine(n);
+            Console.Read();
+
+
+        }

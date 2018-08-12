@@ -1,0 +1,28 @@
+//sometime type conversion will not waork for non-compatiable types in this situation you can use .NETs Convert
+            string a = "1";
+            int b = Convert.ToInt32(a);
+            //we can also use c# parse method
+            int j = int.Parse(a);
+            Console.WriteLine(b);
+            Console.WriteLine(j);
+
+
+  //convert the numbers into actual integeres
+            Console.WriteLine("Enter Credit Card Number");
+            var credit = Console.ReadLine();
+            if (String.IsNullOrWhiteSpace(namesix))
+            {
+                Console.WriteLine("Etwas ist mit den loss");
+            }
+            else
+            {
+                Convert.ToInt32(credit);
+                Console.WriteLine(credit + " Recieved!");
+            }
+
+
+            //convert price to string
+            float price = 25.12f;
+            price.ToString("C");
+            Console.WriteLine(price);
+            Console.ReadLine();

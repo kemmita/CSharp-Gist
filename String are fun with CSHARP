@@ -1,0 +1,83 @@
+            //format string
+            string firstnName = "Russell";
+            string lastName = "kemmit";
+            string fullName = firstnName + " " + lastName;
+            var myFullName = string.Format("My Name is {0} {1}", firstnName, lastName);
+            Console.WriteLine(myFullName);
+            
+
+            //join string
+            string[] names = new string[3] { "Russell", "James", "Peter" };
+            var formatteNames = string.Join(",", names);
+            Console.WriteLine(formatteNames);
+           
+
+
+            //verbadem string
+            //typically in programming languages if we wish to break lines, we will have to use \n but with verbadem
+            //symbols we can make it much easier
+            var text = "Hello Aldopho, please look into file pathe C:://xampp//install \n then look in the other folder!";
+            Console.WriteLine(text);
+            //the @symbol will make it verbadem
+            string texttwo = @"hello mom
+                            I want chicken for dinner!";
+            Console.WriteLine(texttwo);
+            Console.Read();
+
+
+//convert string to all lower
+            Console.WriteLine("Enter Name");
+            string name = Console.ReadLine();
+            Console.WriteLine(name.ToLower());
+
+            //convert string to all lower
+            Console.WriteLine("Enter Name");
+            string nametwo = Console.ReadLine();
+            Console.WriteLine(nametwo.ToUpper());
+
+
+            //get index of char
+            Console.WriteLine("Enter Name");
+            string namethree = Console.ReadLine();
+            var single = namethree.IndexOf('r');
+            Console.WriteLine(single);
+
+
+            //Trim white space
+            Console.WriteLine("Enter Name");
+            string namefour = Console.ReadLine();
+            Console.WriteLine("'{0}'", namefour.Trim());
+
+
+
+            Console.WriteLine("Enter Name");
+            string namefive = Console.ReadLine();
+            Console.WriteLine(namefive.Replace("Russell", "Tommy"));
+            Console.WriteLine(namefive.Replace('r', 'b'));
+
+
+            //below.NET method "IsNullOrWhiteSpace" will help us verify user input is not empty
+            Console.WriteLine("Enter Name");
+            string namesix = Console.ReadLine();
+            if (String.IsNullOrWhiteSpace(namesix))
+            {
+                Console.WriteLine("Etwas ist mit den loss");
+            }
+            else
+            {
+                Console.WriteLine(namesix + " Alles gut ist!");
+            }
+
+
+            //below we do the same thing as above, but also convert the numbers into actual integeres
+            Console.WriteLine("Enter Credit Card Number");
+            var credit = Console.ReadLine();
+            if (String.IsNullOrWhiteSpace(namesix))
+            {
+                Console.WriteLine("Etwas ist mit den loss");
+            }
+            else
+            {
+                Convert.ToInt32(credit);
+                Console.WriteLine(credit + " Recieved!");
+            }

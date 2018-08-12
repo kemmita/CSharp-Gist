@@ -1,0 +1,53 @@
+1. Define your variables/fields as private for the given class, that is how you defin a private field, it could be Name if you wanted
+private string _name;
+
+
+
+2. Create public getter and setter methods for the private fields above.
+
+//setters is used to set the value of the private field, like Russells age is 28, it is now set.
+  public void setName(string name)
+        {
+                this._name = name;
+        }
+ 
+//getters are used to simply display the value of the private field
+ public string getName()
+        {
+            return _name;
+        }
+//here we call the class and the getters and setters
+   static void Main(string[] args)
+        {
+            var person = new Person();
+            person.setName("mike");
+            person.getName();
+
+            
+            Console.ReadLine();
+        }
+        
+//above is an ok way of doing this, but in C#, there is more modern ways to get around writing all of that code
+//we will use Properties 
+ class Person
+    {
+        private string _name;
+        private int _age;
+        //below is a property that elimenates the use for getters and setters
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+        //below is an auto-implemented  property 
+        public int Age { get; set; }
+    }
+//here is us accessing these in the main class
+ static void Main(string[] args)
+        {
+            var person = new Person();
+            var a = person.Name = "Shannon";
+            var b = person.Age = 65;
+            Console.WriteLine("{0} is {1}", a, b);
+            Console.ReadLine();
+        }

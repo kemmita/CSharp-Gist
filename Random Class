@@ -1,0 +1,9 @@
+  //we can genereate random int or doubles usuing the random class
+            var lucky = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                //we can control the min and max by declaring them here in the param area
+                Console.WriteLine(lucky.Next(15,50));
+                
+            }
+            

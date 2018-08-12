@@ -1,0 +1,31 @@
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class GenericList<T>
+    {
+        public void Add(T value)
+        {
+            Console.WriteLine("The number is " + value);
+        }
+    }
+}
+
+
+//using the genereic list we created above, we can now create a list of any datatype or class object
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using ConsoleApp1;
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+        //we have now made the new generic list and int list
+        var numbers = new GenericList<int>();
+        numbers.Add(89);
+        var s = Console.ReadLine();
+    }
+}

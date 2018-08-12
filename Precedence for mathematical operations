@@ -1,0 +1,5 @@
+int a = 10;
+ int b = 3;
+ int c = 45;
+ //according to typical conventions c*b will come first and the add a to the number if we wish to change Precedence we can use ()
+ Console.WriteLine((a + b) * c);

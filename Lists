@@ -1,0 +1,51 @@
+var Names = new List<string>();
+            List<string> names = new List<string>();
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine("Please enter a name");
+                var input = Console.ReadLine();
+                names.Add(input);
+
+            }
+
+
+            if (names.Contains("Russell"))
+            {
+                //Console.WriteLine("Access Granted");
+                names.Remove("Russell");
+            }
+            foreach (string name in names)
+            {
+                Console.WriteLine(name);
+            }
+            
+
+            List<int> numbers = new List<int>();
+            numbers.AddRange(new int[3] { 5,15,20});
+
+            foreach (int number in numbers)
+            {
+                Console.WriteLine(number);
+            }
+            
+                
+ class Order{
+         public string name;
+         public int age;
+ }         
+//below we create a list from a class, readonly keyword will keep our application safe in the sense that the list will not be re-initialized 
+ public readonly List<Order> Orders = new List<Order>();
+ //every constructor will have access to the list. 
+  public Person()
+        {
+           
+           
+        }
+
+  public Person(string name, int age)
+        {
+            this.Age = age;
+            this.Name = name;
+
+        }
+

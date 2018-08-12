@@ -1,0 +1,19 @@
+  static void Main(string[] args)
+        {
+            int[] numbers = new int[3] { 1,2,3};
+            string[] names = new string[5] { "kevin", "kevin", "kevin", "kevin", "kevin"};
+            //a quicker way of doing what we did above is to
+            var names = new string[5] { "kevin", "kevin", "kevin", "kevin", "kevin"};
+                for (int i = 0; i < names.Length ; i++)
+            {
+                Console.WriteLine(names[i]);
+               
+            }
+            
+                
+
+
+            Console.ReadLine();
+            
+            
+        }

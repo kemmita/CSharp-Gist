@@ -1,0 +1,14 @@
+  var number = new int[5] { 1, 2, 3, 4, 5 };
+            int[] age = new int[10] { 12, 15, 12, 14, 15, 12, 14, 15, 12, 12 }; 
+
+            for(int i = 0; i< age.Length; i++)
+            {
+                Console.WriteLine(age[i]);
+            }
+
+
+            foreach(int numbers in number)
+            {
+                Console.WriteLine(numbers);
+            }
+            

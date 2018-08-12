@@ -1,0 +1,36 @@
+    //enums are just like classes and must be declared outside of another class, they can even begiven their on file if you want
+    //a enum is several consts wrapped together.
+    public enum ShippingMethod
+    {
+        Regular =1,
+        Regi =2,
+        Express =3,
+    }
+    class Program
+    {
+        //below is just an example of what it would looke like if you did not create an enum.
+        public const int regular = 1;
+        public const int regi = 2;
+        public const int express = 3;
+     
+
+        static void Main(string[] args)
+        {
+
+
+
+            var method = ShippingMethod.Express;
+            Console.WriteLine(method);
+            //enums are naturally integers so we can type cast the param to display the int value
+            Console.WriteLine((int)method);
+
+
+            //if we recieve a numeric value for one of our enum values we can typecast it to a string using the enum name
+            int methodId = 3;
+            Console.WriteLine((ShippingMethod)methodId);
+
+            Console.Read();
+
+
+        }
+    }

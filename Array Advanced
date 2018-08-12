@@ -1,0 +1,38 @@
+//IndexOf will locate the value we are looking for in the array
+            var kidmatrix = new int[] { 1, 2, 3, 4, 5 };
+             var index = Array.IndexOf(kidmatrix, 3);
+            Console.WriteLine(index);
+            //we can declare a new array and then copy the data from the previous array into the new one using Copy
+            int[] arrayrecieve = new int[3];
+            Array.Copy(kidmatrix, arrayrecieve, 3);
+
+            //sort method will work with both numbers and strings
+            string[] cheese = new string[3] { "e", "d", "k" };
+            Array.Sort(cheese);
+            for (int i = 0; i < arrayrecieve.Length; i++)
+            {
+                Console.WriteLine(cheese[i]);
+            }
+            //reverese will print everything backwords 
+            Array.Reverse(kidmatrix);
+            for (int i = 0; i < arrayrecieve.Length; i++)
+            {
+                Console.WriteLine(kidmatrix[i]);
+            }
+
+            //here is a rectangular array
+            int[,] matrix = new int[3, 5]
+            {
+                { 1,2,3,4,5},
+                { 20,30,40,50,60},
+                { 15,16,17,18,19},
+            };
+            //here is a rectangular array with var
+            var Matrix = new int[3, 5]
+            {
+                { 1,2,3,4,5},
+                { 20,30,40,50,60},
+                { 15,16,17,18,19},
+            };
+         
+

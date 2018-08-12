@@ -1,0 +1,70 @@
+//below we will declare some variables and create a constructor and overload it, unlike Java, c# does not require you to writea constructor
+   class Person
+    {
+        public string Name;
+        public int Age;
+        public Person(string name)
+        {
+            this.Name = name;
+        }
+        public Person(int age)      
+        {
+            this.Age = age;
+        }
+        //in C# the this keyword is not needed, you can use it like I did above
+        public Person(string name, int age)
+        {
+            Age = age;
+            Name = name;
+        }
+
+    }
+
+//in the main class below we create Peron objects and define the params needed for each particular constructor from the different class.
+   static void Main(string[] args)
+        {
+            var person = new Person(24);
+            var persontwo = new Person("Russell",24);
+            var personthree = new Person("Russell");
+           
+            
+            Console.ReadLine();
+        }
+
+
+
+*************if you use a constructor and another class inherits from that class, you must do what I do below*************
+ public class Vehicle
+    {
+  //to ensure encapsulation, we create a private field called _registartionnumber and initialize it in the consturctor 
+        private string _registartionnumber;
+        //create local variable to help initialize the private field above.
+        public Vehicle(string registrationnumber)
+        {
+            Console.WriteLine(registrationnumber);
+            _registartionnumber = registrationnumber;
+        }
+
+    }
+ 
+  //this is a car so we wish to inherit from the vehicle class
+    class Car: Vehicle
+    {
+        //to ensure encapsulation we create another local variable here string carregistration and use the base 
+        //keyword to pass it to the original vehicle consturctor in Java
+        public Car(string carregistration)
+            : base(carregistration)
+        {
+
+        }
+    }
+
+//the data below in the main class will be sent back to the original constructor
+static void Main(string[] args)
+        {
+            var car = new Car("xyzabyt");
+            Console.ReadLine();
+        }
+ 
+    
+
