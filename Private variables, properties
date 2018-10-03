@@ -1,0 +1,38 @@
+1. You will often find yourself having to utilize encapsulation so that you can keep specfic class methods and properties safe.
+2. Below we will see how to create private properties and instantiate them with our constructor so that we may use them in a different class.
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    public class Employee
+    {
+        private string _firstName;
+        private string _lastName;
+        private int _id;
+
+        public string FirstName
+        {
+            get { return _firstName; }
+            set { _firstName = value; }
+        }
+
+        public string LastName
+        {
+            get { return _lastName; }
+            set { _lastName = value; }
+        }
+
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+    }
+}
