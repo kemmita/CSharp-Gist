@@ -1,0 +1,51 @@
+1. int
+using System;
+namespace ConsoleApp1
+{
+    class Solution
+    {
+        static void Main(string[] args)
+        {
+            //Below we will have 2 rows and 3 columns.
+            //000
+            //000
+            int[,] zweiDimensional = new int[2, 3];
+            zweiDimensional[0, 1] = 5; //The first row and second column will now have 5 as its value.
+            //Here is a great way to assign a two dimensional array's data. below is the same as above.
+            int[,] twoDimensional = { { 1, 2, 3 }, { 4, 5, 6 } };
+            Console.WriteLine(twoDimensional[0, 0] + "" + twoDimensional[0, 1] + "" + twoDimensional[0, 2]);
+            Console.WriteLine(twoDimensional[1, 0] + "" + twoDimensional[1, 1] + "" + twoDimensional[1, 2]);
+            Console.ReadLine();
+        }
+    }
+}
+
+2. string
+using System;
+namespace ConsoleApp1
+{
+    class Solution
+    {
+        static void Main(string[] args)
+        {
+            string[,] name = 
+            {
+                // We have 4 rows and 2 columns so to access rad we would do name[1,1];
+                {"Russell", "kemmit" },
+                {"Bee", "Rad" }, // Bee is 1 row 0 colum
+                {"Ttyler", "conos" },
+                {"Sarah", "Macabe" },
+            };
+            Console.WriteLine(name[1,0]);
+            for (int i = 0; i <= name.GetUpperBound(0); i++)
+            {
+                string firstName = name[i, 0]; // Fetching the first column.
+                string lastName = name[i, 1];  // Fetching the second column.
+                Console.WriteLine("{0} {1}", firstName, lastName);
+
+            }
+           
+            Console.ReadLine();
+        }
+    }
+}
