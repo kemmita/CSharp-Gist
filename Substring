@@ -1,0 +1,4 @@
+1. Substring method will allow you to return a substring of the orgignal string.
+string name = "RussellKemmit";
+//we want to only retrieve kemmit, so we start at index 7 which is "K" and then count how many chars are in kemmit which is 6
+Console.WriteLine(name.Substring(7, 6));
