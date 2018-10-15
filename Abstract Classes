@@ -1,59 +1,59 @@
-//we use Abstract Classes as a way to have methods pre-declared we use the virtual keyword, 
-	    //like we did when using polymorphisim this abstact class can never be instantiated as an object becuase it is abstract
-	    abstract class Animal
-	    {
-	        public virtual void Noise()
-	        {
-	            
-	        }
-	    }
-	 
-	//we inherit from animal to use poly
-	    class Dog:Animal
-	    {
-	        //unlike with polymorphisim, we would not be refered back the base method of noise becuase it is asbtract
-	        //it must be defined here if we are to use it in the application. 
-	        public override void Noise()
-	        {
-	            Console.WriteLine("Dogs Bark");
-	        }
-	    }
-	  
-	
+1. We will start with the abstract class
 
-	class Cat:Animal
-	    {
-	        public override void Noise()
-	        {
-	            Console.WriteLine("cats go Meow!!");
-	        }
-	    }
+using System;
+namespace ConsoleApp1
+{
+    //abstract classes must be declared abstract at the class level in order to create abstract methods.
+    public abstract class Country
+    {
+        public abstract void Language(); // Here we declare an abstract method
+        public abstract void Food(); // Here we declare an additional abstract method
 	
+	// Now below is an important thing to remeber, You can create a normal method in a abstract class, but you will not be able
+	to instantiate this method until it has been inherited from a non-abstract class
+        public void PLay()
+        {
+            Console.WriteLine("Playing");
+        }
+    }
+}
 
-	  class Bird:Animal
-	    {
-	        public override void Noise()
-	        {
-	            Console.WriteLine("Chirp chirp....");
-	        }
-	    }
-	 
-	//main class
-	 static void Main(string[] args)
-	
+2. Below is a non-abstract class that we will use to implement the abstract class above.
 
-	        {
-	
+using System;
+namespace ConsoleApp1
+{
+   //implment the abstract class as you would a class you were inheriting from ":"
+   public class SouthAfrica: Country
+    {
+    	//all abstract methods must be declared or the application will not run, use the override keyword to implment the abstract method.
+        public override void Language()
+        {
+            Console.WriteLine("Ons praat Afrikaans");
+        }
+        public override void Food()
+        {
+            Console.WriteLine("Ons eet varke");
+        }
+    }
+}
 
-	            var dog = new Dog();
-	            var cat = new Cat();
-	            var bird = new Bird();
-	            bird.Noise();
-	            dog.Noise();
-	            cat.Noise();
-	
+3. Below is the main program class.
 
-	            Console.ReadKey();
-	
+using System;
+namespace ConsoleApp1
+{
+    class Solution
+    {
+        static void Main(string[] args)
+        {
+	    //we instantiate the non-abstract class and then implment both abstract and non abstrcat methods!
+            SouthAfrica sa = new SouthAfrica();
+            sa.PLay();
+            sa.Language();
+            sa.Food();
+            Console.ReadLine();
+        }
 
-	        }
+    }
+}
