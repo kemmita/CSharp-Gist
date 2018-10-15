@@ -1,0 +1,2 @@
+1. Before I thought we would have to convert our string into an array of type char, but in fact you can check the char in a string
+by simply doing exampleString[example-index].
