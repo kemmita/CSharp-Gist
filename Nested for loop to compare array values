@@ -1,0 +1,36 @@
+
+using System;
+
+class Program {
+    public static void Main(string[] args)
+    {
+
+        string strings = "aaaqqqsddxxzzzzz";
+        Console.WriteLine(Longest(strings));
+
+    }
+
+    private static int Longest(string str)
+    {
+        int max = 0;
+        for (int i = 0; i < str.Length; i++)
+        {
+            int count = 0;
+            for (int j = i; j < str.Length; j++)
+            {
+                if (str[i] == str[j])
+                {
+                    count++;
+                }
+            }
+
+            if (count > max)
+            {
+                max = count;
+            }
+        }
+
+ 
+        return max;
+    }
+}
