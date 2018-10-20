@@ -1,0 +1,26 @@
+1. We wantto locate all numbers that hold a value less than 5, we will use Linq and then a Loop
+
+2. Linq
+
+int[] numbers = {1,45,3,4,6,8,34,23,45,45,7,6,5,4,7};
+var getTheNumbers = from n in numbers
+					where n < 5
+					select n;
+
+Console.WriteLine(getTheNumbers);
+
+
+3. Loop
+
+//We must create a list as an array should not be resized.
+List<int> neuNummer = new List<int>();
+
+foreach(var n in numbers){
+    if(n < 5){
+    neuNummer.Add(n);
+    }
+}
+
+foreach(var n in neuNummer){
+    Console.WriteLine(n);
+}
