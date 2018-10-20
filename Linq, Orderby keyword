@@ -1,0 +1,12 @@
+1. We wasnt to retrieve all numbers greater than 4 and want to order them in derscending order
+
+2. Code
+
+int[] numbers = {1,45,3,4,6,8,34,23,45,45,7,6,5,4,7};
+
+var getNummers = from n in numbers
+					 where n > 4
+					 orderby n descending //ascending 
+					 select n;
+
+Console.WriteLine(getNummers);
