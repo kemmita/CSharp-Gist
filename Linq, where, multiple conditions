@@ -1,0 +1,12 @@
+1. We can use multiple where conditions to narrow down our query
+
+2. Code
+
+string[] catNames = {"Lucky", "Lucky", "Bella", "Kermit", "Toad"};
+
+var getCharFromCat = from cat in catNames
+					 where cat.Contains('a') 
+					 where cat.Length > 4
+					 select cat;
+
+Console.WriteLine(getCharFromCat);
