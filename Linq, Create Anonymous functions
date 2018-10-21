@@ -1,0 +1,92 @@
+1. Code for Person class and YoungPerson class
+
+internal class YoungPerson
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }
+    internal class Person
+    {
+        private string _firstName;
+        private string _lastName;
+        private int _height;
+        private int _age;
+        private int _id;
+
+        private Gender _gender;
+
+        public string FirstName
+        {
+            get => _firstName;
+            set => _firstName = value;
+        }
+        public string LastName
+        {
+            get => _lastName;
+            set => _lastName = value;
+        }
+        public int Height
+        {
+            get => _height;
+            set => _height = value;
+        }
+        public int Age
+        {
+            get => _age;
+            set => _age = value;
+        }
+        public int Id
+        {
+            get => _id;
+            set => _id = value;
+        }
+
+        public Gender Gender { get; set; }
+
+        public Person(string fisrtName, string lastName, int id, int height, int age, Gender gender)
+        {
+            _id = id;
+            _firstName = fisrtName;
+            _lastName = lastName;
+            _height = height;
+            _age = age;
+            _gender = gender;
+        }
+
+    }
+    internal enum Gender
+    {
+        Male,
+        Female
+    }
+}
+
+
+2. Main Class
+
+
+static void Main(string[] args)
+        {
+            List<Person> persons = new List<Person>()
+            {
+                new Person("Russ", "Kemmit", 1, 70, 29, Gender.Male),
+                new Person("John", "James", 2, 82, 20, Gender.Male),
+                new Person("Cindy", "Lopard", 3, 61, 13, Gender.Female),
+                new Person("Norman", "Sanchez", 4, 69, 24, Gender.Male),
+                new Person("Erica", "Salum", 5, 51, 10, Gender.Female),
+                new Person("Roger", "Rabit", 6, 70, 35, Gender.Male),
+                new Person("Sandy", "Lindstrom", 7, 61, 10, Gender.Female),
+                new Person("Cary", "Hairheim", 8, 81, 40, Gender.Male)
+            };
+            
+            //Below we will create multiple anonomouys YougPerson objects after the query has ran. 
+            var youngFolk = from p in persons
+                where p.Age < 25
+                select new YoungPerson{ Name = $"{p.FirstName} {p.LastName}", Age = p.Age};
+
+            foreach (var p in youngFolk)
+            {
+                Console.WriteLine("{0} {1}", p.Age, p.Name);
+            }
+            Console.ReadLine();
+        }
