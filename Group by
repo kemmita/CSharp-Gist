@@ -1,0 +1,103 @@
+1. By using group by we can return the data in groups.
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.WindowsAzure.Storage.File.Protocol;
+
+namespace ConsoleApp1
+{
+    class Solution
+    {
+        static void Main(string[] args)
+        {
+            List<Person> persons = new List<Person>()
+            {
+                new Person("Russ", "Kemmit", 1, 70, 29, Gender.Male),
+                new Person("Karen", "Husk", 0, 63, 29, Gender.Female),
+                new Person("John", "James", 2, 82, 20, Gender.Male),
+                new Person("Cindy", "Lopard", 3, 61, 13, Gender.Female),
+                new Person("Norman", "Sanchez", 4, 69, 24, Gender.Male),
+                new Person("Erica", "Salum", 5, 51, 10, Gender.Female),
+                new Person("Roger", "Rabit", 6, 70, 35, Gender.Male),
+                new Person("Sandy", "Lindstrom", 7, 61, 10, Gender.Female),
+                new Person("Andy", "Hairheim", 8, 81, 40, Gender.Male)
+            };
+            var groupMitC = from p in persons
+                            where p.Age > 20
+                            group p by p.Age;
+
+            foreach (var p in groupMitC)
+            {
+                Console.WriteLine(p.Key);
+                foreach (var i in p)
+                {
+                    Console.WriteLine($"{i.FirstName}");
+                }
+            }
+            Console.ReadLine();
+        }
+
+    }
+
+    internal class YoungPerson
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }
+    internal class Person
+    {
+        private string _firstName;
+        private string _lastName;
+        private int _height;
+        private int _age;
+        private int _id;
+
+        private Gender _gender;
+
+        public string FirstName
+        {
+            get => _firstName;
+            set => _firstName = value;
+        }
+        public string LastName
+        {
+            get => _lastName;
+            set => _lastName = value;
+        }
+        public int Height
+        {
+            get => _height;
+            set => _height = value;
+        }
+        public int Age
+        {
+            get => _age;
+            set => _age = value;
+        }
+        public int Id
+        {
+            get => _id;
+            set => _id = value;
+        }
+
+        public Gender Gender { get; set; }
+
+        public Person(string fisrtName, string lastName, int id, int height, int age, Gender gender)
+        {
+            _id = id;
+            _firstName = fisrtName;
+            _lastName = lastName;
+            _height = height;
+            _age = age;
+            _gender = gender;
+        }
+
+    }
+    internal enum Gender
+    {
+        Male,
+        Female
+    }
+}
