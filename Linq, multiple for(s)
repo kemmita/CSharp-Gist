@@ -1,4 +1,11 @@
-                             // sn = Squared Number 
+ List<List<int>> lists = new List<List<int>>
+            {
+                new List<int>() {1,2,3},
+                new List<int>() {4,5,6},
+                new List<int>() {7,8,9}
+            };
+
+            // sn = Squared Number 
             var alleNummer = from l in lists // First select all lists within the list
                              from n in l// next itterate through each element in each individual collection
                              let sn = n * n// Square each number
