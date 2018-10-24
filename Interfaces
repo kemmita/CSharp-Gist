@@ -1,0 +1,58 @@
+1. Interfaces are different tha abstract classes as they can not have any access modifiers for the methods and cannot create any methods
+to be inherited from the interface like you can do with an abstract class
+
+2. Interface 
+
+namespace ConsoleApp1
+{
+    interface IMaterial
+    {
+        void Type();
+        void Cost(int cost);
+    }
+}
+
+
+3. Abstract Class
+
+namespace ConsoleApp1
+{
+   public abstract class Exist
+   {
+       public abstract void Existence();
+   }
+}
+
+4. Class that implments both abstract class and interface
+
+using System;
+namespace ConsoleApp1
+{
+    class Vehicle : Exist, IDriveable
+    {
+        //we simply implment the methods from the interface, but must override the method from the abstract class.
+        public void Move()
+        {
+            Console.WriteLine("The vehicle moves forward at 50 MPH");
+        }
+        public void Stop()
+        {
+            Console.WriteLine("The vehicle can stop.");
+        }
+        public override void Existence()
+        {
+            Console.WriteLine("this vehicle does in fact exist!");
+        }
+    }
+}
+
+
+5. Program.cs
+
+   static void Main()
+        {
+            Vehicle v = new Vehicle();
+            v.Move();
+            v.Existence();
+            Console.ReadLine();
+        }
