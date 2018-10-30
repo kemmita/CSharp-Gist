@@ -1,0 +1,29 @@
+1. As we know Linq method uses lambda expressions. Lets compare the code below to see what is more efficent.
+
+2. Linq Query
+
+static void Main()
+        {
+            string[] catNames = { "Lucky", "Bella", "Luna", "Oreo", "Simba", "Toby", "Loki", "Oscar" };
+            List<int> numbers = new List<int>() { 5, 6, 3, 2, 1, 5, 6, 7, 8, 4, 234, 54, 14, 653, 3, 4, 5, 6, 7 };
+            object[] mix = { 1, "string", 'd', new List<int>() { 1, 2, 3, 4 }, new List<int>() { 5, 2, 3, 4 }, "dd", 's', "Hello Kitty", 1, 2, 3, 4, };
+
+            var oddNumbers = from n in numbers
+                             where n % 2 != 0
+                             select n;
+            Console.WriteLine(string.Join(", ", oddNumbers));
+            Console.ReadLine();
+        }
+ 
+3. Linq Method
+
+  static void Main()
+        {
+            string[] catNames = { "Lucky", "Bella", "Luna", "Oreo", "Simba", "Toby", "Loki", "Oscar" };
+            List<int> numbers = new List<int>() { 5, 6, 3, 2, 1, 5, 6, 7, 8, 4, 234, 54, 14, 653, 3, 4, 5, 6, 7 };
+            object[] mix = { 1, "string", 'd', new List<int>() { 1, 2, 3, 4 }, new List<int>() { 5, 2, 3, 4 }, "dd", 's', "Hello Kitty", 1, 2, 3, 4, };
+           
+           var oddNummer = numbers.Where(n => (n % 2 != 0));
+            Console.WriteLine(string.Join(", ", oddNummer));
+            Console.ReadLine();
+        }
