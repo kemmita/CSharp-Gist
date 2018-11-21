@@ -1,4 +1,26 @@
+1. All arrays have a base class of object, meaning we can declare an array of type object and insert whatever data type we like.
+
   static void Main(string[] args)
+        {
+            object[] objectArray = new object[3];
+            objectArray[0] = 12;
+            objectArray[1] = "hun";
+            MyClass m = new MyClass();
+            objectArray[2] = m.Name = "russell";
+
+            foreach (var o in objectArray)
+            {
+                Console.WriteLine(o);
+            }
+
+            Console.ReadKey();
+        }
+
+ 
+ 
+ 
+ 
+ static void Main(string[] args)
         {
             int[] numbers = new int[3] { 1,2,3};
             string[] names = new string[5] { "kevin", "kevin", "kevin", "kevin", "kevin"};
