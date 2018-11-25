@@ -48,3 +48,34 @@ namespace ConsoleApp1
         }
     }
 }
+
+3. Using out
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class EntryPoint
+    {
+        static void Main()
+        {
+            int outsideVar;
+            // out is different from ref as any data passed to SomeFunction will be discarded. 
+            //Both will return 10
+            SomeFunction(out outsideVar);
+            Console.WriteLine(outsideVar);
+            Console.ReadLine();
+        }
+
+        public static void SomeFunction(out int insideVar)
+        {
+            insideVar = 0;
+            insideVar += 10;
+            Console.WriteLine(insideVar);
+        }
+    }
+}
