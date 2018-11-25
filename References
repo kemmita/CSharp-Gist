@@ -1,0 +1,50 @@
+1. No Reference
+   class EntryPoint
+    {
+        static void Main()
+        { 
+            int outsideVar = 20;
+            //we pass the outsideVar variable with the valu of 20, it will be asigned to a new variable in the method called and will have
+            an additioanl 20 added to it, so when it reuns it will result in 30.
+            SomeFunction(outsideVar);
+            //Below will only print 20 as it did not have the chance to visit the function below. If we want it to obtain the value 
+            assigned below, we must asign a reference to the variable.
+            Console.WriteLine(outsideVar);
+            Console.ReadLine();
+        }
+
+        public static void SomeFunction(int insideVar)
+        {
+            insideVar += 10;
+            Console.WriteLine(insideVar);
+        } 
+    }
+
+2. Reference 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class EntryPoint
+    {
+        static void Main()
+        {
+            int  outsideVar = 20;
+            // a ref is assigned as the variable is passed, it will now maintaine that value throughout the application.
+            SomeFunction(ref outsideVar);
+            Console.WriteLine(outsideVar);
+            Console.ReadLine();
+        }
+        // a ref must be used here also in order for it to work.
+        public static void SomeFunction(ref int insideVar)
+        {
+            insideVar += 10;
+            Console.WriteLine(insideVar);
+        }
+    }
+}
