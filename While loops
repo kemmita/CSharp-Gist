@@ -1,0 +1,21 @@
+using System;
+using System.Collections.Generic;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int counter = 0;
+            while (counter <= 100)
+            {
+                if (counter % 15 == 0)
+                {
+                    Console.WriteLine($"{counter} fizzBuzzer");
+                }
+                counter++;
+            }
+        }
+    }
+}
