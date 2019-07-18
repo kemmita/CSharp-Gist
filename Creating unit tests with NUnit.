@@ -1,0 +1,60 @@
+1. In vs studio, create a new unit test project along side your current project.
+2. Go into Nugget and run the commands below
+```
+install-package NUnit
+install-package NUnit3TestAdapter -Version 3.8.0
+```
+3. Below is the code for the NUnit test.
+```cs
+using NUnit.Framework;
+using TestNinja.Fundamentals;
+
+namespace TestNinja.UnitTests
+{
+    [TestFixture]
+    public class ReservationTests
+    {
+        [Test]
+        public void UserOldEnoughToOrderRoom_UserEntersOldEnoughAge_ReturnsTrue()
+        {
+            // Arrange - Act
+            var reservation = new Reservation().UserOldEnoughToOrderRoom(new User { Age = 21 });
+
+            // Assert 
+            Assert.IsTrue(reservation);
+        }
+
+        [Test]
+        public void UserOldEnoughToOrderRoom_UserEntersNotOldEnoughAge_ReturnsFalse()
+        {
+            var reservation = new Reservation().UserOldEnoughToOrderRoom(new User { Age = 12 });
+            Assert.IsFalse(reservation);
+        }
+    }
+}
+```
+Below is the class we are tersting against that is located in the propject next to this unit testing project.
+```cs
+namespace TestNinja.Fundamentals
+{
+    public class Reservation
+    {
+        public bool UserOldEnoughToOrderRoom(User user)
+        {
+            if(user.Age >= 21)
+            {
+                return true;
+            }
+            return false;
+        }
+        
+    }
+
+    public class User
+    {
+        public bool IsAdmin { get; set; }
+        public bool IsCustomer{ get; set; }
+        public int Age { get; set; }
+    }
+}
+```
