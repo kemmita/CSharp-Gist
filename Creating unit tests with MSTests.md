@@ -1,4 +1,5 @@
-1. Create an additional project right next to your project titled yourprojectname.UnitTests, this will be under Test Unit Test project.
+1. Create an additional project right next to your project titled yourprojectname.UnitTests, this will be under Test Unit Test project. We will need to add a reference of the project to the UnitTest Project. we do that by right clicking on the references of the unitests project and adding the reference to the actual prject.
+
 2. to create an actual test class, add a new class and name it classnameTests.cs
 3. Below is the test class 
 ```cs
