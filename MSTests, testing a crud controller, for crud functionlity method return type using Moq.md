@@ -80,3 +80,82 @@ namespace TestNinja.Mocking
     }
 }
 ```
+3. we will now consume that repository in our EmployeeController
+```cs
+using System.Data.Entity;
+
+namespace TestNinja.Mocking
+{
+    public class EmployeeController
+    {
+        private IEmployeeRepository _employee;
+
+        public EmployeeController(IEmployeeRepository employee)
+        {
+            _employee = employee;
+        }
+
+        public ActionResult DeleteEmployee(int id)
+        {
+            _employee.DeleteEmployee(id);
+            return RedirectToAction("Employees");
+        }
+
+        private ActionResult RedirectToAction(string employees)
+        {
+            return new RedirectResult();
+        }
+    }
+
+    public class ActionResult { }
+
+    public class RedirectResult : ActionResult { }
+
+    public class EmployeeContext
+    {
+        public DbSet<Employee> Employees { get; set; }
+
+        public void SaveChanges()
+        {
+        }
+    }
+
+    public class Employee
+    {
+    }
+}
+```
+4. The Initial test is to verify we can delete a user.
+```cs
+using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using TestNinja.Mocking;
+
+namespace TestNinja.Tests
+{
+    [TestClass]
+    public class EmployeControllerTests
+    {
+        [TestMethod]
+        public void DeleteEmployee_RedirectToEmployeeAction()
+        {
+            var employee = new Mock<IEmployeeRepository>();
+            var controller = new EmployeeController(employee.Object);
+            controller.DeleteEmployee(1);
+            employee.Verify(e => e.DeleteEmployee(1));
+        }
+
+        [TestMethod]
+        public void DeleteEmployeeMethodReturnTypeValidation_ReturnAction()
+        {
+            var employee = new Mock<IEmployeeRepository>();
+            var controller = new EmployeeController(employee.Object);
+
+            var result = controller.DeleteEmployee(1);
+            Assert.IsInstanceOfType(result, typeof(ActionResult));
+        }
+    }
+}
+
+```
