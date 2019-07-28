@@ -9,30 +9,16 @@ namespace testconsole
    public delegate bool IsPromotable(Delton delton);
     public class Delton
     {
-        public int Id { get; set; }
+ public int Id { get; set; }
         public string Name { get; set; }
-        public int Salary { get; set; }
-        public int Expereince { get; set; }
-        public Delton(int id, string name, int sal, int exp)
-        {
-            Id = id;
-            Name = name;
-            Salary = sal;
-            Expereince = exp;
-        }
-        public Delton()
-        {
 
-        }
-        //Pass the delegate to the method you wish to use.
-        public void PromoteEmployee(List<Delton> deltons, IsPromotable isPromotable)
+        public void MustBeInsured(List<Insurance> insurances, VerifyInsurance verify)
         {
-            foreach (Delton d in deltons)
+            foreach (var i in insurances)
             {
-                //Now the delegate is being used to define the argument of the if statement. So a developer could say                         "if(user>=17){promote them}" another developer could pass in something different such as "if(user>=19){promote                  them}"
-                if(isPromotable(d))
+                //Now the delegate is being used to define the argument of the if statement. So a developer could say        
                 {
-                    Console.WriteLine($"{d.Name} can now be promoted.");
+                    Console.WriteLine($"{i.Name} must be insured.");
                 }
             }
         }
@@ -43,13 +29,14 @@ namespace testconsole
 2. Now in this class we use the delegate as an argument and pass it to the fucntion above.
 static void Main(string[] args)
         {
-            List<Delton> deltonList = new List<Delton>
+            List<Insurance> insurance = new List<Insurance>
             {
-                new Delton(1, "Jane", 98, 5),
-                new Delton(2, "Jim", 938, 6),
-                new Delton(2, "Sandy", 18, 2),
+                new Insurance{Id = 1, Name = "Exa"},
+                new Insurance{Id = 2, Name = "Sumt"},
+                new Insurance{Id = 3, Name = "KH"},
+                new Insurance{Id = 4, Name = "Ra"},
             };
-            var d = new Delton();
+            var i = new Insurance();
             // Below we use a lambda function instead of a delegate function.
-            d.PromoteEmployee(deltonList, x => x.Expereince >= 3);
+            i.MustBeInsured(insurance, c => c.Name == "Exa" || c.Name == "KH");
         }
