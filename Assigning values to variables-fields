@@ -1,3 +1,0 @@
-//below two lines do the same ecaxt thing
-var video = new Video() { Title = "Girl goes to the mall" };
-            video.Title = "Girl goes to the zoo";
