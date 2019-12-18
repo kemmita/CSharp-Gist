@@ -1,0 +1,15 @@
+    public static class Factory
+    {
+        private static readonly UnityContainer container = new UnityContainer();
+        static Factory()
+        {
+            container.RegisterType<ICustomer, DiscountCustomer>("D");
+            container.RegisterType<ICustomer, Customer>("C");
+            container.RegisterType<ICustomer, HatedCustomer>("H");
+            container.RegisterType<ICustomer, GoldCustomer>("G");
+        }
+        public static ICustomer CreateCustomer(string type)
+        {
+            return container.Resolve<ICustomer>(type);
+        }
+    }
