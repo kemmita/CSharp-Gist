@@ -1,52 +1,74 @@
-1. First we will want to create a class that will contain the event signature
+1. We will first create the EventClass
 ```cs
-namespace Tester
-{
-    public class VideoEncoder
+  public class EventClass 
     {
-        //Define Event
-        public event EventHandler<EventArgs> VideoEncoded;
-        //Raise Event
-        protected virtual void OnVideoEncoded()
+        //First declare our EventHandler. Then bring in the classes that will subscribe to the event.
+        public event EventHandler OnPurchase;
+        private readonly Stock _stock;
+        private readonly Boss _boss;
+        
+        public EventClass()
         {
-            VideoEncoded?.Invoke(this, EventArgs.Empty);
+            _stock = new Stock();
+            _boss = new Boss();
+            Subscribe();
         }
-        public void Encode(Video video)
+        
+        //Below we subscribe the classes and their specific methods to the event.
+        public void Subscribe()
         {
-            Console.WriteLine("Encoding Video....");
-            Thread.Sleep(3000);
-            OnVideoEncoded();
+            OnPurchase += _stock.StockGoingUp;
+            OnPurchase += _boss.TellBoss;
+        }
+        
+        //When this function is called in the main programm class, all funcitons listening in other classes will fire off.
+        public void Purchase(bool purchased)
+        {
+            if (purchased)
+            {
+                OnPurchase?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
-}
 ```
-2. Next we will create a class and within that class we will have a method that will subscribe to the event.
+2. Here are the two classes and the functions that will fire off when tghe event is invoked.
 ```cs
-namespace Tester
-{
-    public class MailService
+   public class Stock
     {
-        public void OnVideoEncoded(object source, EventArgs e)
+        public void StockGoingUp(object sender, EventArgs e)
         {
-            Console.WriteLine("Send email");
+            Console.WriteLine("Stock went up today!");
         }
     }
-}
+    
+      public class Boss
+    {
+        public void TellBoss(object sender, EventArgs e)
+        {
+            Console.WriteLine("The boss was told");
+        }
+    }
 ```
-3. program.cs
+3. Finally in our main program class, we trigger the method that will invoke the event
 ```cs
-namespace Tester
-{
     class Program
     {
         static void Main(string[] args)
         {
-            var video = new Video() { Titile = "Video 1" };
-            var videoEncoder = new VideoEncoder();// publisher
-            var mailService = new MailService();// subscriber
-            videoEncoder.VideoEncoded += mailService.OnVideoEncoded;
-            videoEncoder.Encode(video);
+            var e = new EventClass();
+
+            Console.WriteLine("Would you like to purchase the item?");
+
+            var response = Console.ReadLine();
+
+            if (response.Equals("yes"))
+            {
+                e.Purchase(true);
+            }
+            else
+            {
+                e.Purchase(false);
+            }
         }
     }
-}
 ```
