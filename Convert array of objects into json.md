@@ -10,11 +10,7 @@
                 new UserAddress{Id = 2, Street = "Street 2", Zip = "54021"}
             };
 
-            var json = JsonConvert.SerializeObject(new
-            {
-                //Without defining this name below the json would be provided without a name for the array containing the objects.
-                userAddresses = userAddresses
-            });
+            var json = JsonConvert.SerializeObject(userAddresses);
 
             File.WriteAllText(@"addressArrayTest.json", json);
         }
