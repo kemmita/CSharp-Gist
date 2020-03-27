@@ -13,6 +13,15 @@
             var json = JsonConvert.SerializeObject(userAddresses);
 
             File.WriteAllText(@"addressArrayTest.json", json);
+            
+            
+            //Below we must specify the type to deserialize to.
+            var objResponse1 = JsonConvert.DeserializeObject<UserAddress[]>(json);
+
+            foreach (var item in objResponse1)
+            {
+                Console.WriteLine(item.Id);
+            }
         }
     }
 
