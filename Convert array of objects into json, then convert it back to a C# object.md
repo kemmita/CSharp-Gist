@@ -1,4 +1,4 @@
-1. C#
+1. C# We use an Array of objects, for the example. but using a list of objects would also work the same way.
 ```cs
     class Program
     {
