@@ -1,4 +1,5 @@
-A c# dictionary is just like a c++ map.
+1. A c# dictionary is just like a c++ map.
+```cs
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,10 @@ namespace ConsoleApp1
         }
     }
 }
+```
 
-
-now in the parent class we can decide which data type or objects it will be
+2. now in the parent class we can decide which data type or objects it will be
+```cs
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -33,3 +35,4 @@ class Solution
         var s = Console.ReadLine();
     }
 }
+```
