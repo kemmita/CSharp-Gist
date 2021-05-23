@@ -1,9 +1,0 @@
-1. This will print every number within the Array
-
-int[] numbers = {1,45,3,4,6,8,34,23,45,45,7,6,5,4,7};
-
-var getTheNumbers = from n in numbers
-					where n == 45
-					select n;
-          
-Console.WriteLine(getTheNumbers);
