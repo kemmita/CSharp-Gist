@@ -4,7 +4,7 @@
 
         static void Main(string[] args)
         {
-            var dir = @"C:\Users\g656375\source\repos\ConsoleApp1\ConsoleApp1\TestDir";
+            var dir = @"C:\Users\TestDir";
             CreateDir(dir);
 
             using (StreamWriter fs = File.CreateText($@"{dir}\test.txt"))
