@@ -17,3 +17,10 @@ static void Main(string[] args)
             Console.WriteLine(res);
         }
 ```
+3. If it is a async method returning void, use th4e Wait keyword instead of Result.
+```cs
+static void Main(string[] args)
+        {
+            var res = DoWorkWithNoReturnTypeAsync().Wait();
+        }
+```
