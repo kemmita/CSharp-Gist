@@ -1,3 +1,4 @@
+## Extension Method for sealed value type.
 1. Sometimes you will want to add a method to a class without edidting the class itself. You can do this using extenstion methods.
 ```cs
     class Program
@@ -40,4 +41,36 @@
             return string.Join(" ", words.Take(num));
         }
     }
+```
+
+## Extension Method for reference type custom class.
+1. Class
+```cs
+   public class Foo
+    {
+        public string Name { get; }
+
+        public Foo(string name)
+        {
+            Name = name;
+        }
+    }
+```
+2. Extension Method
+```cs
+    public static class ExtensionMethods
+    {
+        public static string PrintFooNTime(this Foo foo, int n)
+        {
+            return string.Concat(Enumerable.Repeat(foo.Name, n));
+        }
+    }
+```
+3. Call extension method
+```cs
+  static void Main(string[] args)
+        {
+            var foo = new Foo("Charles");
+            Console.WriteLine(foo.PrintFooNTime(3));
+        }
 ```
